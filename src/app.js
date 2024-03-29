@@ -15,6 +15,11 @@ app.use(cors({
 }))
 
 
+const envMode = process.env.NODE_ENV.trim() || "PRODUCTION";
+const adminSecretKey = process.env.ADMIN_SECRET_KEY || "adsasdsdfsdfsdfd";
+const userSocketIDs = new Map();
+const onlineUsers = new Set();
+
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
@@ -24,4 +29,4 @@ app.get("/", (req, res) => {
     res.send("Gaurav Chat App");
   });
 
-export { app }
+export { app, envMode }
