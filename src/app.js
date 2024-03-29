@@ -29,4 +29,4 @@ app.get("/", (req, res) => {
     res.send("Gaurav Chat App");
   });
 
-export { app, envMode }
+export { app, envMode, adminSecretKey, userSocketIDs}
