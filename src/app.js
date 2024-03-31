@@ -9,7 +9,7 @@ import chatRoute from "./routes/chat.routes.js";
 import adminRoute from "./routes/admin.routes.js";
 
 const app = express();
-const envMode = process.env.NODE_ENV.trim() || "PRODUCTION";
+
 const adminSecretKey = process.env.ADMIN_SECRET_KEY || "adsasdsdfsdfsdfd";
 const userSocketIDs = new Map();
 
@@ -28,4 +28,4 @@ app.get("/", (req, res) => {
   res.send("Gaurav Chat App");
 });
 
-export { app, envMode, adminSecretKey, userSocketIDs };
+export { app, adminSecretKey, userSocketIDs };
