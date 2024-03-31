@@ -6,7 +6,7 @@ import { CHAT_TOKEN } from "../constants.js";
 import { User } from "../models/user.model.js";
 
 const isAuthenticated = TryCatch((req, res, next) => {
-  const token = req.cookies[CHATTU_TOKEN];
+  const token = req.cookies[CHAT_TOKEN];
   if (!token)
     return next(new ErrorHandler("Please login to access this route", 401));
 
@@ -18,7 +18,7 @@ const isAuthenticated = TryCatch((req, res, next) => {
 });
 
 const adminOnly = (req, res, next) => {
-  const token = req.cookies["chattu-admin-token"];
+  const token = req.cookies["chat-admin-token"];
 
   if (!token)
     return next(new ErrorHandler("Only Admin can access this route", 401));
