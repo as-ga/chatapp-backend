@@ -26,13 +26,13 @@ dotenv.config({
 const onlineUsers = new Set();
 connectDB()
   .then(() => {
-    app.set("io", io);
-
+    
     const server = createServer(app);
     const io = new Server(server, {
       cors: corsOptions,
     });
-
+    app.set("io", io);
+    
     io.use((socket, next) => {
       cookieParser()(
         socket.request,
