@@ -14,8 +14,9 @@ const uploadFilesToCloudinary = async (files = []) => {
       cloudinary.uploader.upload(
         getBase64(file),
         {
+          folder:"chatapp/images",
           resource_type: "auto",
-          public_id: uuid(),
+          public_id: uuid()
         },
         (error, result) => {
           if (error) return reject(error);
