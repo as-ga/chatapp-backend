@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { v4 as uuid } from "uuid";
+import cookieParser from "cookie-parser";
 
 import { getSockets } from "./utils/helper.js";
 import { Message } from "./models/message.model.js";
