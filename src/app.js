@@ -3,7 +3,6 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import { corsOptions } from "./constants.js";
-
 import userRoute from "./routes/user.routes.js";
 import chatRoute from "./routes/chat.routes.js";
 import adminRoute from "./routes/admin.routes.js";
@@ -11,8 +10,6 @@ import adminRoute from "./routes/admin.routes.js";
 const app = express();
 
 const adminSecretKey = process.env.ADMIN_SECRET_KEY || "adsasdsdfsdfsdfd";
-const userSocketIDs = new Map();
-
 
 app.use(cors(corsOptions));
 app.use(express.json({ limit: "16kb" }));
@@ -28,4 +25,4 @@ app.get("/", (req, res) => {
   res.send("Gaurav Chat App");
 });
 
-export { app, adminSecretKey, userSocketIDs };
+export { app, adminSecretKey };

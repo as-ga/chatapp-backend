@@ -1,4 +1,4 @@
-import { userSocketIDs } from "../app.js";
+import { userSocketIDs } from "../index.js";
 
 const getOtherMember = (members, userId) =>
   members.find((member) => member._id.toString() !== userId.toString());

@@ -25,15 +25,15 @@ dotenv.config({
   path: "./.env",
 });
 const onlineUsers = new Set();
+const userSocketIDs = new Map();
 connectDB()
   .then(() => {
-    
     const server = createServer(app);
     const io = new Server(server, {
       cors: corsOptions,
     });
     app.set("io", io);
-    
+
     io.use((socket, next) => {
       cookieParser()(
         socket.request,
@@ -118,3 +118,4 @@ connectDB()
   .catch((err) => {
     console.log("MONGO db connection failed !!! ", err);
   });
+export { userSocketIDs };
