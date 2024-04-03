@@ -8,7 +8,7 @@ const corsOptions = {
   credentials: true,
 };
 
-
+const adminSecretKey = process.env.ADMIN_SECRET_KEY || "gaurav";
 const DB_NAME = "gaurav-chat-app";
 
 const CHAT_TOKEN = "chat-token";
@@ -32,6 +32,7 @@ const ONLINE_USERS = "ONLINE_USERS";
 
 export {
   corsOptions,
+  adminSecretKey,
   DB_NAME,
   CHAT_TOKEN,
   ALERT,
